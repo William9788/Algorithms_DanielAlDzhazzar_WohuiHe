@@ -102,6 +102,13 @@ public class Song {
                 '}';
     }
 
+    /**
+     * shift inserts new tags if they are unique
+     *
+     * @param tag parametr which we need to insert
+     * @return boolean outcome of inserting operation
+     */
+
     public boolean addTag(String tag) {
         for (int i = 0; i < tagCount; i++) {
             if (tags[i].equalsIgnoreCase(tag)) {
