@@ -102,13 +102,27 @@ public class Song {
                 '}';
     }
 
-    public boolean addTag(String tag){
-        // todo: ADD addTag() LOGIC
-        // Should implement APPROPRIATE insert action
-        // Question to ask yourself: Which is more appropriate here - overwrite or shift?
-        // Reminder: Do not allow duplicate tags to be added!
-        // Reminder: Make sure you insert in SORTED ORDER!
-        throw new UnsupportedOperationException("Not implemented yet");
+    public boolean addTag(String tag) {
+        for (int i = 0; i < tagCount; i++) {
+            if (tags[i].equalsIgnoreCase(tag)) {
+                return false;
+            }
+        }
+
+        for (int i = 0; i < tagCount; i++) {
+            if (tags[i].compareToIgnoreCase(tag) > 0) {
+                for (int j = tagCount; j > i; j--) {
+                    tags[j] = tags[j - 1];
+                }
+                tags[i] = tag;
+                tagCount++;
+                return true;
+            }
+        }
+
+        tags[tagCount] = tag;
+        tagCount++;
+        return true;
     }
 
     public boolean removeTag(String tag){
