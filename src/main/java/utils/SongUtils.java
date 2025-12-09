@@ -13,10 +13,26 @@ public class SongUtils {
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
-    public static Song[] searchBySongTitle(Song [] songs, String songTitle){
+    public static Song searchBySongTitle(Song [] songs, String songTitle){
         // todo: ADD searchBySongTitle() LOGIC
         // Should implement binary search
-        throw new UnsupportedOperationException("Not implemented yet");
+        int left = 0;
+        int right = songs.length - 1;
+
+        while(left <= right){
+            int mid = left + (right - left) / 2;
+            int comp = songs[mid].getTitle().compareToIgnoreCase(songTitle);
+            if(comp == 0){
+                return songs[mid];
+            }
+            else if(comp < 0) {
+                left = mid + 1;
+            }
+            else{
+                right = mid - 1;
+            }
+        }
+        return null;
     }
 
     /**
