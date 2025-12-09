@@ -109,6 +109,7 @@ public class Song {
      * @return boolean outcome of inserting operation
      */
 
+    //Done by Daniel Al-Dzhazzar
     public boolean addTag(String tag) {
         for (int i = 0; i < tagCount; i++) {
             if (tags[i].equalsIgnoreCase(tag)) {
@@ -146,6 +147,7 @@ public class Song {
      * @return boolean outcome of search
      */
 
+    //Done by Daniel Al-Dzhazzar
     public boolean containsTag(String tag){
         int left = 0;
         int right = tagCount - 1;
