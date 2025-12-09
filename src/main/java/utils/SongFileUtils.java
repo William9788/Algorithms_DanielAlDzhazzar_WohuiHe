@@ -23,7 +23,7 @@ public class SongFileUtils {
         try{
             inputFile = new Scanner(new FileReader(filename));
             while(inputFile.hasNextLine()){
-                Song r = parseSong(inputFile.nextLine());
+                Song r = parseSongNoDebug(inputFile.nextLine());
                 if(r!= null){
                     temp.add(r);
                 }
@@ -73,6 +73,30 @@ public class SongFileUtils {
         }
         return song;
     }
+
+    private static Song parseSongNoDebug(String s){
+        Song song = null;
+        String [] components = s.split("%%");
+
+        if(components.length == 6){
+            String title = components[0];
+            String artist = components[1];
+            String album = components[2];
+            double rating;
+            try{
+                rating = Double.parseDouble(components[3]);
+            }catch(NumberFormatException e){
+                rating = 0;
+            }
+            String genre = components[4];
+            String [] tagList = components[5].split("~~");
+
+            Arrays.sort(tagList, String::compareToIgnoreCase);
+
+            song = new Song(title, artist, album, rating, genre, tagList);
+        }
+        return song;
+    }
     
     private static String formatSongForFile(Song s){
         if(s == null){
@@ -101,8 +125,7 @@ public class SongFileUtils {
         
         return output;
     }
-
-    public static void main(String[] args) {
+    public static void main(String[] args){
         Song[] songs = readSongFile("sampleSongInput.txt");
         for(Song s: songs){
             System.out.println(s);
