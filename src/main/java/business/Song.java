@@ -118,6 +118,10 @@ public class Song {
             }
         }
 
+        if (tagCount == tags.length) {
+            tags = Arrays.copyOf(tags, tags.length + 1);
+        }
+
         for (int i = 0; i < tagCount; i++) {
             if (tags[i].compareToIgnoreCase(tag) > 0) {
                 for (int j = tagCount; j > i; j--) {
@@ -128,7 +132,6 @@ public class Song {
                 return true;
             }
         }
-
         tags[tagCount] = tag;
         tagCount++;
         return true;
