@@ -39,6 +39,7 @@ public class PlaylistApp {
                     System.out.println("1) By title");
                     System.out.println("2) By number of tags");
                     int op = input.nextInt();
+                    input.nextLine();
 
                     switch(op){
                         case 1:
@@ -55,6 +56,7 @@ public class PlaylistApp {
                             break;
                         default:
                             System.out.println("Please enter a valid option");
+                            break;
                     }
 
                     break;
@@ -62,7 +64,7 @@ public class PlaylistApp {
                     break;
                 case "4":
                     System.out.println("Input title to search: ");
-                    String title = input.next();
+                    String title = input.nextLine();
                     Validation.validateString(title);
                     SongUtils.sortSongsBySongTitle(songs);
                     Song result = SongUtils.searchBySongTitle(songs, title);
@@ -84,14 +86,15 @@ public class PlaylistApp {
                     int song = input.nextInt();
                     Validation.intBound(song, songs.length);
                     System.out.println("What change would you like to make: ");
-                    System.out.println("1)Add a tag");
-                    System.out.println("2)Remove a tag");
-                    String op2 = input.next();
+                    System.out.println("1) Add a tag");
+                    System.out.println("2) Remove a tag");
+                    int op2 = input.nextInt();
+                    input.nextLine();
 
                     switch (op2){
-                        case "1":
+                        case 1:
                             System.out.println("Input unique tag: ");
-                            String tag = input.next();
+                            String tag = input.nextLine();
                             Validation.validateString(tag);
                             boolean outcome = songs[song].addTag(tag);
                             if(outcome == true){
@@ -104,7 +107,7 @@ public class PlaylistApp {
                                 System.out.println("Tag not added");
                             }
                             break;
-                        case "2":
+                        case 2:
                             break;
                         default:
                             System.out.println("Please enter a valid option");
@@ -113,6 +116,7 @@ public class PlaylistApp {
                 case "6":
                     System.out.println("Most popular song: ");
                     System.out.println(SongUtils.findMostPopular(songs).toString());
+                    break;
                 case "0":
                     keepRunning = false;
                     break;
