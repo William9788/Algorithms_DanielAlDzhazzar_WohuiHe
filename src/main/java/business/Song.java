@@ -119,7 +119,13 @@ public class Song {
         }
 
         if (tagCount == tags.length) {
-            tags = Arrays.copyOf(tags, tags.length + 1);
+            String[] newTags = new String[tags.length + 1];
+
+            for (int i = 0; i < tags.length; i++) {
+                newTags[i] = tags[i];
+            }
+
+            tags = newTags;
         }
 
         for (int i = 0; i < tagCount; i++) {
