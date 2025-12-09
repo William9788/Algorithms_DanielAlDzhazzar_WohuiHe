@@ -107,9 +107,10 @@ public class Song {
      *
      * @param tag parametr which we need to insert
      * @return boolean outcome of inserting operation
+     *
+     * @author Daniel Al-Dzhazzar
      */
 
-    //Done by Daniel Al-Dzhazzar
     public boolean addTag(String tag) {
         for (int i = 0; i < tagCount; i++) {
             if (tags[i].equalsIgnoreCase(tag)) {
@@ -145,9 +146,10 @@ public class Song {
      *
      * @param tag parametr, which is searched in tags
      * @return boolean outcome of search
+     *
+     * @author Daniel Al-Dzhazzar
      */
 
-    //Done by Daniel Al-Dzhazzar
     public boolean containsTag(String tag){
         int left = 0;
         int right = tagCount - 1;
