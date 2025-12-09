@@ -5,6 +5,7 @@ import business.Song;
 import java.util.Scanner;
 import utils.SongFileUtils;
 import utils.SongUtils;
+import utils.Validation;
 
 import static utils.SongFileUtils.readSongFile;
 
@@ -37,10 +38,10 @@ public class PlaylistApp {
                     System.out.println("How would you like to sort songs?");
                     System.out.println("1) By title");
                     System.out.println("2) By number of tags");
-                    String op = input.nextLine();
+                    int op = input.nextInt();
 
                     switch(op){
-                        case "1":
+                        case 1:
                             SongUtils.sortSongsBySongTitle(songs);
                             System.out.println("\nPlaylist sorted by title: ");
                             System.out.println("-----------------");
@@ -50,7 +51,7 @@ public class PlaylistApp {
                                 System.out.println("-----------------");
                             }
                             break;
-                        case "2":
+                        case 2:
                             break;
                         default:
                             System.out.println("Please enter a valid option");
@@ -62,14 +63,14 @@ public class PlaylistApp {
                 case "4":
                     System.out.println("Input title to search: ");
                     String title = input.next();
-
+                    Validation.validateString(title);
                     SongUtils.sortSongsBySongTitle(songs);
                     Song result = SongUtils.searchBySongTitle(songs, title);
                     if(result != null){
                         System.out.println(result.toString());
                     }
                     else{
-                        System.out.println("No song found");
+                        System.out.println("Song not found");
                     }
                     break;
                 case "5":
@@ -81,7 +82,7 @@ public class PlaylistApp {
                         System.out.println("-----------------");
                     }
                     int song = input.nextInt();
-
+                    Validation.intBound(song, songs.length);
                     System.out.println("What change would you like to make: ");
                     System.out.println("1)Add a tag");
                     System.out.println("2)Remove a tag");
@@ -91,9 +92,8 @@ public class PlaylistApp {
                         case "1":
                             System.out.println("Input unique tag: ");
                             String tag = input.next();
-
+                            Validation.validateString(tag);
                             boolean outcome = songs[song].addTag(tag);
-
                             if(outcome == true){
                                 System.out.println("Tag added successfully");
                                 System.out.println("-----------------");
