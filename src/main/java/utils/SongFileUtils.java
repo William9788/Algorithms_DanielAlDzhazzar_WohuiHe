@@ -43,13 +43,21 @@ public class SongFileUtils {
     }
     
     private static Song parseSong(String s){
+        //Not really sure if I am allowed to change provided methods,
+        //but for output to be more readable I got rid of following lines
+
+        /*
         System.out.println(s);
         // Format: Title%%Artist%%Album%%Rating%%Genre%%tag1~~tag2~~tag3 etc
         // %% separates components of a song
         // ~~ separates tags
+
+         */
         Song song = null;
         String [] components = s.split("%%");
+        /*
         System.out.println(components[0] + " " + components.length);
+         */
         if(components.length == 6){
             String title = components[0];
             String artist = components[1];
