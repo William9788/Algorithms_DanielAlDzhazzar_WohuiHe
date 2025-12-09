@@ -139,6 +139,13 @@ public class Song {
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
+    /**
+     * searches tag provided using binary search
+     *
+     * @param tag parametr, which is searched in tags
+     * @return boolean outcome of search
+     */
+
     public boolean containsTag(String tag){
         int left = 0;
         int right = tagCount - 1;
