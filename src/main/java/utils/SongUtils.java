@@ -24,11 +24,18 @@ public class SongUtils {
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
-    public static void sortSongsBySongTitle(Song [] songs){
-        // todo: ADD sortSongsBySongTitle() LOGIC
-        // Should implement for-loop based bubble sort
-        throw new UnsupportedOperationException("Not implemented yet");
+    public static void sortSongsBySongTitle(Song [] songs) {
+        for (int i = 0; i < songs.length - 1; i++) {
+            for (int j = 0; j < songs.length - i - 1; j++) {
+                if (songs[j].getTitle().compareToIgnoreCase(songs[j + 1].getTitle()) > 0) {
+                    Song musicBox = songs[j];
+                    songs[j] = songs[j + 1];
+                    songs[j + 1] = musicBox;
+                }
+            }
+        }
     }
+
 
     public static void sortSongsByNumTags(Song [] songs){
         // todo: ADD sortSongsByNumTags() LOGIC
