@@ -20,8 +20,14 @@ public class SongUtils {
     }
 
     public static Song findMostPopular(Song [] songs){
-        // todo: ADD findMostPopular() LOGIC
-        throw new UnsupportedOperationException("Not implemented yet");
+        Song best = songs[0];
+
+        for(int i = 0; i < songs.length; i++){
+            if(songs[i].getRating > best.getRating){
+                best = songs[i];
+            }
+        }
+        return best;
     }
 
     /**
