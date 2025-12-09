@@ -1,6 +1,11 @@
 package app;
 
+import business.Song;
+
 import java.util.Scanner;
+import utils.SongFileUtils;
+
+import static utils.SongFileUtils.readSongFile;
 
 /**
  *
@@ -9,8 +14,9 @@ import java.util.Scanner;
 public class PlaylistApp {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
         Scanner input = new Scanner(System.in);
+        Song[] songs = readSongFile("sampleSongInput.txt");
+
         boolean keepRunning = true;
         while(keepRunning) {
             displayMenu();
@@ -18,9 +24,11 @@ public class PlaylistApp {
             String choice = input.nextLine();
 
             switch(choice){
-                // if(case.equals("1")
                 case "1":
-                    handleHello();
+                    for(int i = 0; i < songs.length; i++){
+                        System.out.println(songs[i].toString());
+                        System.out.println("-----------------");
+                    }
                     break;
                 case "2":
                     handleGoodbye();
@@ -52,11 +60,14 @@ public class PlaylistApp {
     }
 
     private static void displayMenu() {
-        System.out.printf("Please select from the following options: ");
-        System.out.println("1) Say hi");
-        System.out.println("2) Say bye");
-        System.out.println("3) Say what?!");
+        System.out.println("Please select from the following options: ");
+        System.out.println("1) Print out a playlist");
+        System.out.println("2) Sort songs");
+        System.out.println("3) Search with specific tag");
+        System.out.println("4) Search, using a title");
+        System.out.println("5) Edit Songs");
+        System.out.println("6) Most popular song");
+        System.out.println("7) Most common song");
         System.out.println("0) Exit");
-        System.out.println("This is a naive change!");
     }
 }
