@@ -101,14 +101,41 @@ public class Song {
                 ", tagCount=" + tagCount +
                 '}';
     }
-
+/**
+ * @author Wohui He
+ * @param tag
+ * @return
+ */
     public boolean addTag(String tag){
+        if(tag == null||tag.trim().isEmpty()){
+            return false;
+        }
+        String sortedtag = tag.trim();
+        String lowertag = sortedtag.toLowerCase();
+        for(int i = 0;i<=tags.length;i++){
+        if(tags[i]!=null&&tags[i].toLowerCase().equals(lowertag)){
+            return false;
+        }
+    }
+    if(tags[tags.length-1]!=null){
+        return false;
+    }
+    int insertIndex=0;
+    while (insertIndex<tags.length&&tags[insertIndex]!=null&&tags[insertIndex].compareToIgnoreCase(sortedtag)<0){
+        insertIndex++;
+    }
+    for(int i = tags.length-1;i>insertIndex;i--){
+    tags[i] = tags[i-1];
+    }
+    tags[insertIndex]=sortedtag;
+    return true;
+
+    
         // todo: ADD addTag() LOGIC
         // Should implement APPROPRIATE insert action
         // Question to ask yourself: Which is more appropriate here - overwrite or shift?
         // Reminder: Do not allow duplicate tags to be added!
         // Reminder: Make sure you insert in SORTED ORDER!
-        throw new UnsupportedOperationException("Not implemented yet");
     }
 
     public boolean removeTag(String tag){
