@@ -60,6 +60,19 @@ public class PlaylistApp {
                 case "3":
                     handleWhat();
                     break;
+                case "4":
+                    System.out.println("Input title to search: ");
+                    String title = input.next();
+
+                    SongUtils.sortSongsBySongTitle(songs);
+                    Song result = SongUtils.searchBySongTitle(songs, title);
+                    if(result != null){
+                        System.out.println(result.toString());
+                    }
+                    else{
+                        System.out.println("No song found");
+                    }
+                    break;
                 case "0":
                     keepRunning = false;
                     break;
