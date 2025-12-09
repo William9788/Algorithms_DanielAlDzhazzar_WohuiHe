@@ -140,9 +140,25 @@ public class Song {
     }
 
     public boolean containsTag(String tag){
-        // todo: ADD containsTag() LOGIC
-        // Should implement binary search
-        throw new UnsupportedOperationException("Not implemented yet");
+        int left = 0;
+        int right = tagCount - 1;
+        int position;
+
+        while(left <= right){
+            int mid = left + (right - left) / 2;
+            int comp = tags[mid].compareToIgnoreCase(tag);
+            if(comp == 0){
+                position = mid;
+                return true;
+            }
+            else if (comp < 0){
+                left = mid + 1;
+            }
+            else{
+                right = mid - 1;
+            }
+        }
+        return false;
     }
 
     public String format(){
