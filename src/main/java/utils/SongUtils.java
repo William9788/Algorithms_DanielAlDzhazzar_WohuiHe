@@ -19,6 +19,15 @@ public class SongUtils {
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
+    /**
+     * gets a song with the highest rating
+     *
+     * @param songs an array of songs
+     * @return first song with highest rating among all
+     *
+     * @author Daniel Al-Dzhazzar
+     */
+
     public static Song findMostPopular(Song [] songs){
         Song best = songs[0];
 
