@@ -13,7 +13,7 @@ public class SongUtils {
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
-    public static Song[] searchBySongTitle(Song [] songs, String songTitle){
+    public static ong[] searchBySongTitle(Song [] songs, String songTitle){
         // todo: ADD searchBySongTitle() LOGIC
         // Should implement binary search
         throw new UnsupportedOperationException("Not implemented yet");

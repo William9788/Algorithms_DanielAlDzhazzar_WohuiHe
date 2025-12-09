@@ -101,8 +101,14 @@ public class Song {
                 ", tagCount=" + tagCount +
                 '}';
     }
-
+/**
+ * Add new tag into the tag array  using insert approach.
+ * @author Wohui He
+ * @param tag
+ * @return
+ */
     public boolean addTag(String tag){
+
         // todo: ADD addTag() LOGIC
         // Should implement APPROPRIATE insert action
         // Question to ask yourself: Which is more appropriate here - overwrite or shift?
