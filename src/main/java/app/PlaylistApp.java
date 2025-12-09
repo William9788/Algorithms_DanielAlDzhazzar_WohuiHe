@@ -58,7 +58,6 @@ public class PlaylistApp {
 
                     break;
                 case "3":
-                    handleWhat();
                     break;
                 case "4":
                     System.out.println("Input title to search: ");
@@ -111,6 +110,9 @@ public class PlaylistApp {
                             System.out.println("Please enter a valid option");
                     }
                     break;
+                case "6":
+                    System.out.println("Most popular song: ");
+                    System.out.println(SongUtils.findMostPopular(songs).toString());
                 case "0":
                     keepRunning = false;
                     break;
