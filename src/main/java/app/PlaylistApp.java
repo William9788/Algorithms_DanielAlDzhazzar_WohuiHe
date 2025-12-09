@@ -73,6 +73,44 @@ public class PlaylistApp {
                         System.out.println("No song found");
                     }
                     break;
+                case "5":
+                    System.out.println("Choose a song: ");
+                    System.out.println("-----------------");
+                    for(int i = 0; i < songs.length; i++){
+                        System.out.print(i + ") ");
+                        System.out.println(songs[i].toString());
+                        System.out.println("-----------------");
+                    }
+                    int song = input.nextInt();
+
+                    System.out.println("What change would you like to make: ");
+                    System.out.println("1)Add a tag");
+                    System.out.println("2)Remove a tag");
+                    String op2 = input.next();
+
+                    switch (op2){
+                        case "1":
+                            System.out.println("Input unique tag: ");
+                            String tag = input.next();
+
+                            boolean outcome = songs[song].addTag(tag);
+
+                            if(outcome == true){
+                                System.out.println("Tag added successfully");
+                                System.out.println("-----------------");
+                                System.out.println(songs[song]);
+                                System.out.println("-----------------");
+                            }
+                            else{
+                                System.out.println("Tag not added");
+                            }
+                            break;
+                        case "2":
+                            break;
+                        default:
+                            System.out.println("Please enter a valid option");
+                    }
+                    break;
                 case "0":
                     keepRunning = false;
                     break;
@@ -82,18 +120,6 @@ public class PlaylistApp {
         }
 
         System.out.println("Program terminating. Goodbye!");
-    }
-
-    private static void handleHello(){
-        System.out.println("Hi!!");
-    }
-
-    private static void handleGoodbye() {
-        System.out.println("Bye!!");
-    }
-
-    private static void handleWhat(){
-        System.out.println("Whaaaaaaaaaaaaaaaaaat?!");
     }
 
     private static void displayMenu() {
