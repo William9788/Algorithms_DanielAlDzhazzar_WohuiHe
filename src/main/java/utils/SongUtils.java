@@ -24,6 +24,14 @@ public class SongUtils {
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
+    /**
+     * sorts an array of songs by titles based on bubble sort algorithm
+     *
+     * @param songs an array which will be sorted
+     *
+     * @author Daniel Al-Dzhazzar
+     */
+
     public static void sortSongsBySongTitle(Song [] songs) {
         for (int i = 0; i < songs.length - 1; i++) {
             for (int j = 0; j < songs.length - i - 1; j++) {
