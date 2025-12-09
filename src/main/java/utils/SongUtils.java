@@ -13,9 +13,16 @@ public class SongUtils {
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
+    /**
+     * searches for a song with needed title
+     *
+     * @param songs an array of songs
+     * @param songTitle title, which will be searched
+     * @return a song with matching title
+     *
+     * @author Daniel Al-Dzhazzar
+     */
     public static Song searchBySongTitle(Song [] songs, String songTitle){
-        // todo: ADD searchBySongTitle() LOGIC
-        // Should implement binary search
         int left = 0;
         int right = songs.length - 1;
 
