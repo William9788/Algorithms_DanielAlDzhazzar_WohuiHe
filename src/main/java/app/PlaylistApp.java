@@ -4,6 +4,7 @@ import business.Song;
 
 import java.util.Scanner;
 import utils.SongFileUtils;
+import utils.SongUtils;
 
 import static utils.SongFileUtils.readSongFile;
 
@@ -25,13 +26,36 @@ public class PlaylistApp {
 
             switch(choice){
                 case "1":
+                    System.out.println("\nPlaylist: ");
+                    System.out.println("-----------------");
                     for(int i = 0; i < songs.length; i++){
                         System.out.println(songs[i].toString());
                         System.out.println("-----------------");
                     }
                     break;
                 case "2":
-                    handleGoodbye();
+                    System.out.println("How would you like to sort songs?");
+                    System.out.println("1) By title");
+                    System.out.println("2) By number of tags");
+                    String op = input.nextLine();
+
+                    switch(op){
+                        case "1":
+                            SongUtils.sortSongsBySongTitle(songs);
+                            System.out.println("\nPlaylist sorted by title: ");
+                            System.out.println("-----------------");
+
+                            for(int i = 0; i < songs.length; i++){
+                                System.out.println(songs[i].toString());
+                                System.out.println("-----------------");
+                            }
+                            break;
+                        case "2":
+                            break;
+                        default:
+                            System.out.println("Please enter a valid option");
+                    }
+
                     break;
                 case "3":
                     handleWhat();
@@ -60,7 +84,7 @@ public class PlaylistApp {
     }
 
     private static void displayMenu() {
-        System.out.println("Please select from the following options: ");
+        System.out.println("\nPlease select from the following options: ");
         System.out.println("1) Print out a playlist");
         System.out.println("2) Sort songs");
         System.out.println("3) Search with specific tag");
