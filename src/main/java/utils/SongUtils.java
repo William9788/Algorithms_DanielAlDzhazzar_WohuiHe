@@ -39,8 +39,8 @@ public class SongUtils {
         // Should implement linear search, but not for a single result
     }
 
-    public static Song searchBySongTitle(Song [] songs, String songTitle){
-        if(songTitle==null||songTitle.trim().isEmpty()){
+  /*   public static Song searchBySongTitle(Song [] songs, String songTitle){
+       if(songTitle==null||songTitle.trim().isEmpty()){
             return null;
         }
         int low=0;
@@ -65,7 +65,7 @@ public class SongUtils {
         // todo: ADD searchBySongTitle() LOGIC
         // Should implement binary search
     }
-
+*/
     public static Song findMostPopular(Song [] songs){
         // todo: ADD findMostPopular() LOGIC
         throw new UnsupportedOperationException("Not implemented yet");
