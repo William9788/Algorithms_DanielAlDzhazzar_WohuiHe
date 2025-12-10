@@ -7,13 +7,34 @@ import business.Song;
  * @author michelle
  */
 public class SongUtils {
+    
     public static Song[] searchByTag(Song [] songs, String tag){
+        if(tag==null||tag.trim().isEmpty()){
+            return new Song[0];
+        }
+        int count=0;
+        for(int i =0;i<songs.length;i++){
+            if(songs[i]!=null&&songs[i].containsTag(tag)){
+                count++;
+            }
+        }
+        if(count==0){
+            return new Song[0];
+        }
+        Song[] result = new Song[count];
+        int index=0;
+        for(int i =0;i<songs.length;i++){
+            if(songs[i]!=null&&songs[i].containsTag(tag)){
+                result[index] = songs[i];
+                index++;
+            }
+        }
+        return result;
         // todo: ADD searchByTag() LOGIC
         // Should implement linear search, but not for a single result
-        throw new UnsupportedOperationException("Not implemented yet");
     }
 
-    public static ong[] searchBySongTitle(Song [] songs, String songTitle){
+    public static Song[] searchBySongTitle(Song [] songs, String songTitle){
         // todo: ADD searchBySongTitle() LOGIC
         // Should implement binary search
         throw new UnsupportedOperationException("Not implemented yet");
