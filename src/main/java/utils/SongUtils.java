@@ -7,7 +7,12 @@ import business.Song;
  * @author michelle
  */
 public class SongUtils {
-    
+    /**
+     * Performs a linear search through the provided array and return the new array contains the specific tags.
+     * @param songs the array of the songs to serach.
+     * @param tag the tag to serach.
+     * @return the array contains the specific tags
+     */
     public static Song[] searchByTag(Song [] songs, String tag){
         if(tag==null||tag.trim().isEmpty()){
             return new Song[0];
