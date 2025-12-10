@@ -39,10 +39,31 @@ public class SongUtils {
         // Should implement linear search, but not for a single result
     }
 
-    public static Song[] searchBySongTitle(Song [] songs, String songTitle){
+    public static Song searchBySongTitle(Song [] songs, String songTitle){
+        if(songTitle==null||songTitle.trim().isEmpty()){
+            return null;
+        }
+        int low=0;
+        int high=songs.length-1;
+        while(low<=high){
+            int mid=(low+high)/2;
+            if(songs[mid]==null){
+                return null;
+            }
+            int cmp=songs[mid].getTitle().compareToIgnoreCase(songTitle);
+            if(cmp==0){
+                return songs[mid];
+            }
+            else if(cmp<0){
+                low=mid+1;
+            }
+            else{
+                high=mid-1;
+            }
+        }
+        return null;
         // todo: ADD searchBySongTitle() LOGIC
         // Should implement binary search
-        throw new UnsupportedOperationException("Not implemented yet");
     }
 
     public static Song findMostPopular(Song [] songs){
