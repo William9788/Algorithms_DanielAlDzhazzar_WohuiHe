@@ -116,7 +116,11 @@ public class Song {
         // Reminder: Make sure you insert in SORTED ORDER!
         throw new UnsupportedOperationException("Not implemented yet");
     }
-
+/**
+ * Remove the specific tag from the tag array using delete approach.
+ * @param tag the tag to be removed.
+ * @return true if it was found and removed ;false if the tag doesnt found or input is invalid.
+ */
     public boolean removeTag(String tag){
         if(tag==null||tag.trim().isEmpty()){
             return false;
