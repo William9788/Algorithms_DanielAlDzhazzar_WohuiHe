@@ -151,6 +151,10 @@ public class Song {
         // Should implement binary search
         throw new UnsupportedOperationException("Not implemented yet");
     }
+    /**
+     * Return the well formatted information
+     * @return a formatted string of song's info
+     */
     public String format(){
         StringBuilder sb = new StringBuilder();
         sb.append("Title:").append(title).append("\n");
