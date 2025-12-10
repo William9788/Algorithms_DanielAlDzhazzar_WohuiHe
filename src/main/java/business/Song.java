@@ -152,7 +152,25 @@ public class Song {
         throw new UnsupportedOperationException("Not implemented yet");
     }
     public String format(){
-        return title+"%%"+artist+"%%"+album+"%%"+genre+"%%"+tags[1]+"~~"+tags[2]+"~~"+tags[3];
+        StringBuilder sb = new StringBuilder();
+        sb.append("Title:").append(title).append("\n");
+        sb.append("Artist:").append(artist).append("\n");
+        sb.append("Album:").append(album).append("\n");
+        sb.append("Rating:").append(rating).append("\n");
+        sb.append("Genre:").append(genre).append("\n");
+        sb.append("Tags:");
+        if(tagCount==0){
+            sb.append("No Tags!");
+        }
+        else{
+            for(int i =0;i<tagCount;i++){
+                sb.append(tags[i]);
+                if(i<tagCount-1){
+                    sb.append(" , ");
+                }
+            }
+        }
+        return sb.toString();
         // todo: ADD format() LOGIC
     }
 }
