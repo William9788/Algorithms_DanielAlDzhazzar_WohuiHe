@@ -78,9 +78,21 @@ public class SongUtils {
     }
 
     public static void sortSongsByNumTags(Song [] songs){
+        for(int i=0;i<songs.length-1;i++){
+            int maxIndex=i;
+            for(int x=i+1;x<songs.length;x++){
+                if(songs[x]!=null&&songs[maxIndex]!=null){
+                    if(songs[x].getTagCount()>songs[maxIndex].getTagCount()){
+                        maxIndex=x;
+                    }
+                }
+            }
+            Song room=songs[i];
+            songs[i]=songs[maxIndex];
+            songs[maxIndex]=room;
+        }
         // todo: ADD sortSongsByNumTags() LOGIC
         // Should implement selection sort
-        throw new UnsupportedOperationException("Not implemented yet");
     }
 
     public static String findMostCommonTag(Song [] songs){
