@@ -151,9 +151,8 @@ public class Song {
         // Should implement binary search
         throw new UnsupportedOperationException("Not implemented yet");
     }
-
     public String format(){
+        return title+"%%"+artist+"%%"+album+"%%"+genre+"%%"+tags[1]+"~~"+tags[2]+"~~"+tags[3];
         // todo: ADD format() LOGIC
-        throw new UnsupportedOperationException("Not implemented yet");
     }
 }
