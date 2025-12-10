@@ -76,7 +76,10 @@ public class SongUtils {
         // Should implement for-loop based bubble sort
         throw new UnsupportedOperationException("Not implemented yet");
     }
-
+/**
+ *  sort the provided array of songs in descending order based on the quantity of tags.
+ * @param songs the array of songs going to be sorted by count tag.
+ */
     public static void sortSongsByNumTags(Song [] songs){
         for(int i=0;i<songs.length-1;i++){
             int maxIndex=i;
