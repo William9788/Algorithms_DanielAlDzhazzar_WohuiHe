@@ -100,7 +100,12 @@ public class SongUtils {
         // todo: ADD sortSongsByNumTags() LOGIC
         // Should implement selection sort
     }
-
+/**
+ * to find the most common tags
+ * @author Wohui He
+ * @param songs the array of songs using in finding common tag
+ * @return the most common tag--case-insensitive;
+ */
     public static String findMostCommonTag(Song [] songs){
         int totalTags=0;
         for(int i =0;i<songs.length;i++){
