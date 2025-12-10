@@ -118,10 +118,28 @@ public class Song {
     }
 
     public boolean removeTag(String tag){
+        if(tag==null||tag.trim().isEmpty()){
+            return false;
+        }
+        int index=-1;
+        for(int i=0;i<tagCount;i++){
+            if(tags[i].equalsIgnoreCase(tag)){
+                index=i;
+                break;
+            }
+        }
+        if(index==-1){
+            return false;
+        }
+        for(int i= index;i<tagCount-1;i++){
+            tags[i]=tags[i+1];
+        }
+        tags[tagCount-1]=null;
+        tagCount--;
+        return true;
         // todo: ADD removeTag() LOGIC
         // Should implement APPROPRIATE delete action
         // Question to ask yourself: Which is more appropriate here - overwrite or shift?
-        throw new UnsupportedOperationException("Not implemented yet");
     }
 
     public boolean containsTag(String tag){
